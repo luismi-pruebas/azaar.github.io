@@ -1,8 +1,36 @@
-<html>
-	<head>
-		<title>Mi página de ejemplo</title>
-	</head>
-	<body>
-	Aquí va el contenido
-	</body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mostrar Imagen con Botón</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #miImagen {
+      display: none; /* Oculta la imagen al inicio */
+      margin-top: 20px;
+      max-width: 400px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Ejemplo: Mostrar Imagen</h1>
+  <button onclick="mostrarImagen()">Mostrar Imagen</button>
+  <br>
+  <img id="miImagen" src="imagenes/foto.jpg" alt="Imagen desde carpeta">
+
+  <script>
+    function mostrarImagen() {
+      document.getElementById("miImagen").style.display = "block";
+    }
+  </script>
+</body>
 </html>
