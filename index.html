@@ -256,6 +256,7 @@
 
   let contador = parseInt(selector.value);
   let intervalo = null;
+  let intervaloAnimacion; 
 
   const tabButtons = document.querySelectorAll(".tab-button");
   const tabContents = document.querySelectorAll(".tab-content");
@@ -277,6 +278,11 @@
 
   pulsador.addEventListener("click", () => {
     clearInterval(intervalo);
+	clearInterval(intervaloAnimacion);
+
+	intervaloAnimacion = setInterval(() => {
+			mostrarImagenes();
+		}, 250);
 
     intervalo = setInterval(() => {
       contador--;
@@ -284,6 +290,7 @@
 
       if (contador <= 0) {
         clearInterval(intervalo);
+		clearInterval(intervaloAnimacion);
         mostrarImagenes();
         contador = parseInt(selector.value);
         contadorSpan.textContent = contador;
@@ -315,6 +322,7 @@
     contador = parseInt(selector.value);
     contadorSpan.textContent = contador;
     clearInterval(intervalo);
+	clearInterval(intervaloAnimacion);
   });
 
 </script>
