@@ -241,13 +241,22 @@
     }
   }
 
-  // ✅ PRE-CARGA TODAS LAS CARTAS
-  const imagenesPreCargadas = [];
+  // ✅ PRE-CARGA TODAS LAS CARTAS   ---------------------------------
+
+const imagenesPreCargadas = [];
+
+async function precargarImagenes() {
   for (let ruta of baraja) {
     const img = new Image();
     img.src = ruta;
+    await img.decode(); //  Decodifica antes de usarla
     imagenesPreCargadas.push(img);
   }
+}
+
+precargarImagenes();
+//--------------------------------------------------------------------
+
 
   const contadorSpan = document.getElementById("contador");
   const selector = document.getElementById("selector");
@@ -311,6 +320,7 @@
         const carta = baraja[indice];
 
         cartasHTML += `<img src="${carta}" alt="Carta" loading="lazy" decoding="async">`;
+		// con loading="lazy" decoding="async"  El navegador no bloquee el renderizado ,, Las imágenes se decodifiquen en paralelo ,, La carga visual sea instantánea
       }
 
       document.getElementById("cartaEspanolaE1").innerHTML = cartasHTML;
