@@ -243,18 +243,14 @@
 
   // ✅ PRE-CARGA TODAS LAS CARTAS   ---------------------------------
 
-const imagenesPreCargadas = [];
 
-async function precargarImagenes() {
+  const imagenesPreCargadas = [];
   for (let ruta of baraja) {
     const img = new Image();
     img.src = ruta;
-    await img.decode(); //  Decodifica antes de usarla
     imagenesPreCargadas.push(img);
   }
-}
-
-precargarImagenes();
+  
 //--------------------------------------------------------------------
 
 
