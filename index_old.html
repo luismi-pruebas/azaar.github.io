@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Azaar</title>
+  <style>
+ 
+    body {
+      text-align: center;
+      margin-top: 20px;
+      font-family: 'Trebuchet MS', sans-serif;
+	  background-color: #B0B0B0;  
+	  color: #590000; 
+    }
+
+    header {
+      padding: 1px 0px;
+	  margin-bottom: 20px;    
+    }
+
+    header select {
+      margin: 1px 5px;
+      padding: 2px 5px; 
+      font-size: 15px;
+    }
+
+    header button {
+      margin: 1px 10px;
+      padding: 8px 15px; 
+      font-size: 16px;
+    }
+	
+    #contador {
+      font-size: 50px;
+      font-weight: bold;
+      margin: 0 10px;
+	  padding: 0px 1px;
+    }
+
+	#pulsador {
+		background-color: #D4F9FF;   
+		color: black;                  
+        border-radius: 5px;   
+	}
+
+	#borrador {
+		background-color: #FFE6CC;   
+		color: black;                  
+        border-radius: 5px;   
+	}
+	
+    .tabs {
+      margin-bottom: 20px;
+    }
+	
+    .tabs button {
+      padding: 6px 20px;
+      margin: 0 5px;  
+      cursor: pointer;
+      border: 1px solid #333;
+      background: #eee;
+      border-radius: 5px;   
+	  background-color: #E3C5C5;   
+    }
+    .tabs button.active {
+      background: #ccc;
+      font-weight: bold;
+	  font-size: 16px;
+	  color: #590000;
+    }
+
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+	h1 {
+	color: #b30000; 
+	text-shadow: 2px 2px 8px #000; 
+	font-family: 'Cinzel', serif; 
+	}
+	
+    .contenedor {
+      margin-left: 1px;
+      padding-left: 30px;
+      padding-right: 30px;
+      margin-right: 1px;
+	  margin-bottom: 35px;  
+      display: flex;          
+      justify-content: center; 
+      gap: 40px;   
+      background: rgba(20, 20, 20, 0.8);
+      border-radius: 15px;  
+    }
+
+	
+	.bloque.izquierda {
+		flex: 1;  
+		display: flex;
+		align-items: center;  
+		gap: 10px;             
+		padding: 15px;
+		border-radius: 10px;
+		background: #303030; 
+		color: #CCCCCC;
+	}
+
+	.selectordecantidad {    
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		}
+
+
+	.bloque.derecha {
+		flex: 3.5;   
+		display: flex;
+		align-items: center;  
+		gap: 15px;             
+		padding: 10px;
+		border-radius: 10px;
+		background: #303030; 
+		transition: transform 0.3s ease, box-shadow 0.3s ease;  
+	}
+	
+	.bloque.derecha:hover {
+		transform: scale(1.02);
+		box-shadow: 0 0 15px rgba(255, 0, 0, 0.5); 
+	}
+
+    img { 
+      border: 1px solid #333;  
+      border-radius: 10px;
+	  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    }
+
+
+
+    .empty-space {
+      width: 540px;   
+	  height: 120px;
+      border: 1px solid #aaa;  
+      display: flex; 
+	  align-items: center; 
+      border-radius: 10px;
+      gap: 10px;    
+	  background: rgba(10, 10, 10, 0.6); 
+      color: #777;
+      font-style: italic;
+    }
+
+    .empty-space img {
+	  border: none;        
+    }
+
+    .nombreArchivo {
+      font-size: 18px;
+      font-weight: bold;
+      color: #CCCCCC;
+    }
+	
+
+	.imagenpresentacionE {
+		width: 140px;      
+		height: 140px;     
+		object-fit: cover;  
+		border-radius: 10px;
+	}
+	
+	.cartaEspanolaE {
+	  height:150px;
+      margin: 5px;
+	  gap: 4px;         
+	  justify-content: left;
+	  display: flex;
+    }
+		
+  </style>
+</head>
+
+
+<body>
+  <h1>Azaar</h1>
+
+
+  <header>
+  
+  
+    <button id="pulsador">Pulsador</button>
+    <span id="contador">6</span>
+    <select id="selector">
+      <option value="1">1</option>
+      <option value="4">4</option>
+      <option value="6" selected>6</option>
+    </select>
+    <button id="borrador">Borrador</button>
+	
+	
+  </header>
+
+
+  <div class="tabs">
+
+	<button class="tab-button active" data-tab="pestanaE">Baraja Española</button>
+    <button class="tab-button" data-tab="pestanaZ">??</button>
+  </div>
+
+
+
+  <div id="pestanaE" class="tab-content active">
+    <div class="contenedor">
+	  <div class="bloque izquierda">
+
+        <img src="E1_baraja_espanola/0presentacionE1.png" class="imagenpresentacionE">
+		
+		<div class="selectordecantidad">
+			<label for="cantidadE1">Número de cartas:</label>
+			<select id="cantidadE1">
+			<option value="1" selected>1</option>
+			<option value="4">4</option>				
+			<option value="10">10</option>
+			</select>
+		</div>
+		
+      </div>
+	  
+	  <div class="bloque derecha">
+        <div class="empty-space">
+		  <div id="imagenAzarEmptyE1">
+			<div id="cartaEspanolaE1" class="cartaEspanolaE"></div>   
+		  </div>
+       </div>
+      </div>
+	</div>
+	
+  </div>
+
+	
+  <div id="pestanaZ" class="tab-content">
+    <p style="font-size:20px; font-weight:bold;">Web de pruebas</p>
+  </div>
+
+  
+
+<script>
+	
+		const palos = ["oros", "copas", "espadas", "bastos"];
+		const numeros = [1,2,3,4,5,6,7,10,11,12];
+		const baraja = [];
+		for (let palo of palos) {
+		for (let numero of numeros) {
+			baraja.push(`E1_baraja_espanola/${numero}_${palo}.png`);
+		}
+		}
+
+  const contadorSpan = document.getElementById("contador");
+  const selector = document.getElementById("selector");
+  const pulsador = document.getElementById("pulsador");
+  const borrador = document.getElementById("borrador");
+
+  let contador = parseInt(selector.value);
+  let intervalo = null;
+  let intervaloAnimacion; 
+
+
+
+  const tabButtons = document.querySelectorAll(".tab-button");
+  const tabContents = document.querySelectorAll(".tab-content");
+
+  tabButtons.forEach(btn => { 
+    btn.addEventListener("click", () => { 
+      tabButtons.forEach(b => b.classList.remove("active")); 
+      btn.classList.add("active"); 
+      const tabId = btn.getAttribute("data-tab"); 
+      tabContents.forEach(c => c.classList.remove("active")); 
+      document.getElementById(tabId).classList.add("active"); 
+    }); 
+  });
+
+
+
+  selector.addEventListener("change", () => {
+    contador = parseInt(selector.value);
+    contadorSpan.textContent = contador;
+  });
+
+
+  pulsador.addEventListener("click", () => {
+    clearInterval(intervalo);
+	clearInterval(intervaloAnimacion);
+
+
+    intervalo = setInterval(() => {
+      contador--;
+      contadorSpan.textContent = contador;
+	  	
+	  
+      if (contador <= 0) {
+			clearInterval(intervalo);
+			clearInterval(intervaloAnimacion);
+		
+			mostrarImagenes();
+			contador = parseInt(selector.value);
+			contadorSpan.textContent = contador;
+      }  
+	  
+    }, 1000); 
+	
+  });
+  
+  
+  function mostrarImagenes() {
+
+
+    const activa = document.querySelector('.tab-button.active');
+    const tabId = activa.dataset.tab;
+ 
+
+	if (tabId === "pestanaE") {
+ 
+	// E1
+
+      const cantidadE1 = parseInt(document.getElementById("cantidadE1").value);
+
+      let cartasEspanolaE1HTML = "";
+
+
+      let mazoTemporal = [...baraja];   
+
+      for (let i = 0; i < cantidadE1; i++) {
+
+        const indiceE1 = Math.floor(Math.random() * mazoTemporal.length);
+        const cartaEspanolaE1 = mazoTemporal[indiceE1];
+
+
+        cartasEspanolaE1HTML += `<img src="${cartaEspanolaE1}" alt="CartaEspanolaE1">`;
+
+      }
+
+      document.getElementById("cartaEspanolaE1").innerHTML = cartasEspanolaE1HTML;	
+	
+	} 
+	
+   } 
+
+  
+
+  borrador.addEventListener("click", () => {
+
+    document.getElementById("imagenAzarEmptyE1").src = "";
+	document.getElementById("cartaEspanolaE1").innerHTML = "";  //borramos las cartasEspanola de E1
+	
+    contador = parseInt(selector.value);
+    contadorSpan.textContent = contador;
+
+    clearInterval(intervalo);
+	clearInterval(intervaloAnimacion);
+	
+  } 
+  
+  );
+</script>
+</body>
+</html>
